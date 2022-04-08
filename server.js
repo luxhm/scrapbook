@@ -9,10 +9,10 @@ const app = express();
 app.use(express.json()); //Used to parse JSON bodies (needed for POST requests)
 app.use(express.urlencoded());
 app.use(express.static('public')); //specify location of static assests
-app.set('views', __dirname + '/views'); //specify location of templates
+app.set('views', __dirname ); //specify location of templates
 app.set('view engine', 'ejs'); //specify templating library
 
-router.get('/', function(request, response) {
+app.get('/', function(request, response) {
   response.status(200);
   response.setHeader('Content-Type', 'text/html')
   response.render("index");
