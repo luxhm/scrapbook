@@ -2,15 +2,69 @@
 <html lang="en">
 
 <head>
-  <title><%=title%></title>
-  <link rel="icon" type="image/png" href="images/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="../public/css/style.css">
 
+  <style>
+
+  .sidenav {
+    height: 100%;
+    width: 5%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #14162f;
+    overflow-x: hidden;
+    padding-top: 1%;
+  }
+
+  .sidenav a {
+    padding: 1% 1% 1% 35%;
+    text-decoration: none;
+    font-size: 25px;
+    color: #c6b7a4;
+    display: block;
+    font-size: 1.5em;
+
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .main {
+    margin-left: 5%; /* Same as the width of the sidenav */
+    font-size: 160px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+    background-color: #e5e5e5;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  </style>
 </head>
 
 <body>
-  <div> </div>
-  <h1>scrapbook</h1>
+
+  <div class="sidenav">
+    <a href="#about">s</a>
+    <a href="#about">c</a>
+    <a href="#about">r</a>
+    <a href="#about">a</a>
+    <a href="#about">p</a>
+    <a href="#about">b</a>
+    <a href="#about">o</a>
+    <a href="#about">o</a>
+    <a href="#about">k</a>
+  </div>
+
+  <main>
+  </main>
+
+</body>
+</html>
