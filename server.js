@@ -12,10 +12,18 @@ app.use(express.static('public')); //specify location of static assests
 app.set('views', __dirname ); //specify location of templates
 app.set('view engine', 'ejs'); //specify templating library
 
+app.use(require('./controllers/index'));
+app.use(require('./controllers/user_controller'));
+
+/*
 app.get('/', function(request, response) {
   response.status(200);
   response.setHeader('Content-Type', 'text/html')
   response.render("views/index");
+});*/
+
+app.use("", function(request, response) {
+  response.redirect('/error?code=400');
 });
 
 //..............Start the server...............................//
