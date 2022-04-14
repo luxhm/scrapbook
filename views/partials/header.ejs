@@ -2,55 +2,15 @@
 <html lang="en">
 
 <head>
+  <title><%=title%></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../public/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 
-  <style>
-  .sidenav {
-    height: 100%;
-    width: 5%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #14162f;
-    overflow-x: hidden;
-    padding-top: 1%;
-  }
-  .sidenav a {
-    padding: 1% 1% 1% 35%;
-    text-decoration: none;
-    color: #c6b7a4;
-    display: block;
-    font-size: 1.5em;
+  </head>
 
-  }
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-/*
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-*/
-  </style>
-</head>
-
-<body>
-
-  <div class="sidenav">
-    <a href="/">s</a>
-    <a href="/">c</a>
-    <a href="/">r</a>
-    <a href="/">a</a>
-    <a href="/">p</a>
-    <a href="/">b</a>
-    <a href="/">o</a>
-    <a href="/">o</a>
-    <a href="/">k</a>
-  </div>
-
-</body>
-</html>
+  <body>
+    <div class="main">
+    <h1>scrapbook</h1>
+    </div>
+    <%- include('sidebar') -%>

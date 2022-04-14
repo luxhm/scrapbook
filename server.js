@@ -14,6 +14,8 @@ app.set('view engine', 'ejs'); //specify templating library
 
 app.use(require('./controllers/index'));
 app.use(require('./controllers/user_controller'));
+app.use(require('./controllers/edit_controller'));
+
 
 /*
 app.get('/', function(request, response) {
