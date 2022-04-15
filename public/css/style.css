@@ -49,11 +49,12 @@
   background-color: #c6b7a4;
   color: white;
   padding: 10px 15px;
-  margin-left: 8.5%;
+  margin-left: 8.25%;
+  margin-top: 5px;
 }
 
 .toolbox  { /*hidden*/
-  width: 0;
+  width: 100px;
   z-index: 1;
   height: 0px;
   top: 0px;
