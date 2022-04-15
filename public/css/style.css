@@ -1,3 +1,4 @@
+/* navbar */
 .sidenav {
   height: 100%;
   width: 5%;
@@ -8,6 +9,7 @@
   background-color: #14162f;
   overflow-x: hidden;
   padding-top: 1%;
+  font-family: 'Bold Outfit';
 }
 .sidenav a {
   padding: 1% 1% 1% 35%;
@@ -24,10 +26,67 @@
 .main {
   margin-left: 6%;
   font-size: 160px;
+  font-family:'Outfit';
+}
+.leftpage {
+     width: 47.25%;
+     margin-left: 2.5%;
+     height: 650px;
+     border: 2.5px solid black;
+     float:left;
+
+}
+.rightpage {
+     width: 47.25%;
+     margin-right: 2.5%;
+     height: 650px;
+     border: 2.5px solid black;
+     float:left;
 }
 
-.square {
-     width: 100px;
-     height: 100px;
-     stroke: blue;
+.openbtn { /*shown*/
+  font-size: 20px;
+  background-color: #c6b7a4;
+  color: white;
+  padding: 10px 15px;
+  margin-left: 8.5%;
+}
+
+.toolbox  { /*hidden*/
+  width: 0;
+  z-index: 1;
+  height: 0px;
+  top: 0px;
+  left: 5%;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  position: fixed;
+}
+
+.toolbox a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: .0020s;
+}
+
+.toolbox .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+/*fonts*/
+@font-face {
+    font-family: 'Outfit';
+    src: url('Outfit-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Bold Outfit';
+    src: url('Outfit-Bold.ttf');
 }
