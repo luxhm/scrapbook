@@ -1,6 +1,8 @@
 //..............Include Express..................................//
 const express = require('express');
 const ejs = require('ejs');
+const multer = require('multer');
+const fs = require('fs');
 
 //..............Create an Express server object..................//
 const app = express();
@@ -15,6 +17,7 @@ app.set('view engine', 'ejs'); //specify templating library
 app.use(require('./controllers/index'));
 app.use(require('./controllers/user_controller'));
 app.use(require('./controllers/edit_controller'));
+app.use(require('./controllers/scrapbook_controller'));
 
 
 /*
