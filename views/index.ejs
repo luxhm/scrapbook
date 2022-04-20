@@ -1,17 +1,13 @@
 <%- include('partials/header', {title:"Index"}) -%>
 
   <div class=main>
-    <h2> scrapbook </h2>
 
-    <section style="background-color:#90b7bc;">
-    <h2>  Specifying a Photo File Format  </h2>
-    <form action="/upload/photo" enctype="multipart/form-data" method="POST">
+    <h2> scrapbook </h2>
+    <form action="/upload/photo" enctype="multipart/form-data" method="POST" class="button">
       <input type="file" name="picture" accept="image/*" required/>
       <br>
       <input type="submit" value="Upload Photo" />
     </form>
-
-    </section>
 
   </div>
 

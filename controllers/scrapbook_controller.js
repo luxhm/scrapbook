@@ -41,11 +41,7 @@ router.post('/upload/photo', publicUpload.single('picture'), (req, res, next) =>
      }
     res.send(error);
   }
-
-/*  res.render('confirmation',{
-    photoLocation: "/images/"+file.filename
-  });
-  */
+  res.render('views/index');
 })
 
 module.exports = router

@@ -52,7 +52,6 @@
   margin-left: 8.25%;
   margin-top: 5px;
 }
-
 .toolbox  { /*hidden*/
   width: 100px;
   z-index: 1;
@@ -80,6 +79,12 @@
   right: 25px;
   font-size: 36px;
 }
+
+.button {
+  border: none;
+  font-size: 16px;
+}
+
 
 /*fonts*/
 @font-face {
