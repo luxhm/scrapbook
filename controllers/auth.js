@@ -25,8 +25,8 @@ router.use(passport.session());
 passport.use(new GoogleStrategy({
     clientID: KEYS["google-client-id"],
     clientSecret: KEYS["google-client-secret"],
-    //callbackURL: "http://localhost:3000/auth/google/callback"
-    callbackURL: "https://seekingstarstruck.herokuapp.com/auth/google/callback"
+    callbackURL: "https://localhost:3000/auth/google/callback"
+    //callbackURL: "https://seekingstarstruck.herokuapp.com/auth/google/callback"
 
     //todo: port==process.env.PORT? :
   },
@@ -68,7 +68,7 @@ router.get('/auth/google/callback',
       User.createUser(userID, userID.split('.')[0]);//only creates if not in users.json
     }
 
-    response.redirect('/astrologyEntry');
+    response.redirect('/');
   });
 
 router.get("/auth/logout", (request, response) => {
