@@ -3,6 +3,7 @@ const express = require('express');
 const ejs = require('ejs');
 const multer = require('multer');
 const fs = require('fs');
+let io = require('socket.io')(server);
 
 //..............Create an Express server object..................//
 const app = express();
@@ -14,11 +15,11 @@ app.use(express.static('public')); //specify location of static assests
 app.set('views', __dirname ); //specify location of templates
 app.set('view engine', 'ejs'); //specify templating library
 
+
 app.use(require('./controllers/index'));
 app.use(require('./controllers/user_controller'));
 app.use(require('./controllers/edit_controller'));
 app.use(require('./controllers/scrapbook_controller'));
-
 
 /*
 app.get('/', function(request, response) {
@@ -30,6 +31,9 @@ app.get('/', function(request, response) {
 app.use("", function(request, response) {
   response.redirect('/error?code=400');
 });
+
+let socketapi =require('./controllers/socketConnections');
+socketapi.io.attach(server);//attach sockets to the server
 
 //..............Start the server...............................//
 const port = process.env.PORT || 3000;
