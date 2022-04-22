@@ -3,10 +3,12 @@ const express = require('express');
 const ejs = require('ejs');
 const multer = require('multer');
 const fs = require('fs');
-let io = require('socket.io')(server);
 
 //..............Create an Express server object..................//
 const app = express();
+
+let server = require('http').Server(app);
+let io = require('socket.io')(server);
 
 //..............Apply Express middleware to the server object....//
 app.use(express.json()); //Used to parse JSON bodies (needed for POST requests)
