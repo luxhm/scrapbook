@@ -25,7 +25,7 @@ router.use(passport.session());
 passport.use(new GoogleStrategy({
     clientID: KEYS["google-client-id"],
     clientSecret: KEYS["google-client-secret"],
-    callbackURL: "https://localhost:3000/auth/google/callback"
+    callbackURL: "https://scrapbooker.herokuapp.com/auth/google/callback"
     //callbackURL: "https://seekingstarstruck.herokuapp.com/auth/google/callback"
 
     //todo: port==process.env.PORT? :
