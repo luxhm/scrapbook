@@ -48,18 +48,18 @@
 
 /*toolbox*/
 .toolbox  {
-  width: 90%;
+  width: 89%;
   z-index: 1;
   height: 70px;
   top: 740px;
   margin-left: 2.5%;
-  background-color: #111;
+  background-color: #C2C2C2;
   transition: 0.5s;
   position: fixed;
-  border: 2.5px solid black;
+  border: 2.5px solid #C2C2C2;
+
 }
 
-/*
 .toolbox a {
   width: 100%;
   top: 50px;
@@ -68,7 +68,8 @@
   color: #818181;
   display: inline;
   transition: .0020s;
-}*/
+  padding: 5% 5%; /*top right/left bottom*/
+}
 
 .button {
   border: none;
