@@ -22,6 +22,8 @@ app.use(require('./controllers/index'));
 app.use(require('./controllers/user_controller'));
 app.use(require('./controllers/edit_controller'));
 app.use(require('./controllers/scrapbook_controller'));
+app.use(require('./controllers/socket_controller'));
+
 
 /*
 app.get('/', function(request, response) {
