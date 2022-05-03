@@ -2,53 +2,13 @@
 
   <div class= main>
     <h2> edit page </h2>
-    <div class= leftpage> </div>
+    <div class= leftpage>
+      <h3> scrapBookTitle (make dynamic later) </h3>
+    </div>
     <div class= rightpage> </div>
 
-    <div id="messages">
-     <h3>Messages</h3>
-     <textarea id="messagesDisplay" name="story"
-            rows="20" cols="50">
-    </textarea><br>
-    <input type="text" id="messageInput"><button type="button" id="sendButton">Send</button><br>
+  </div>
 
-    </div>
-    <span id="numClientsDisplay">Participants: 0<span>
-
-    <script>
-      let socket = io.connect('/');//the default namespace
-      socket.emit('connectionEvent', {userFirstName:'<%=userFirstName%>'});
-
-      socket.on('announcement', function(data) {
-          console.log(data)
-          let mDisplay = document.getElementById('messagesDisplay');
-          let text ="";
-          if(data.userFirstName)
-             text = data.userFirstName+": "+data.message+"\n";
-          else
-             text = data.message+"\n";
-          mDisplay.value +=text;
-      });
-
-      socket.on('connectionEvent', function(data) {
-          //keep track of the current number of participants in the numClientsDisplay span
-          let numClientsDisplay = document.getElementById('numClientsDisplay');
-          let text = "Participants: " + data.numClients;
-          numClientsDisplay.innerText = text;
-          let mDisplay = document.getElementById('messagesDisplay');
-
-          text = data.userFirstName+": "+data.message+"\n";
-
-          mDisplay.value =  mDisplay.value.trim()+text;
-      });
-
-      document.getElementById("sendButton").addEventListener('click', function(){
-        let messageData = document.getElementById("messageInput").value;
-        console.log("sending: "+messageData);
-        socket.emit('announcement', { userFirstName:'<%=userFirstName%>', message: messageData });
-      });
-
-    </script>
-</div>
+  <br>
 <%- include('partials/toolbox') -%>
 <%- include('partials/footer') -%>

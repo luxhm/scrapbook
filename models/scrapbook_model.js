@@ -10,3 +10,7 @@ exports.saveScrapbook = function(scrapbookOject){
 exports.updateScrapbook = function(scrapbookObject){
   //updates an old scrapbook in the scrapbooks json
 }
+
+exports.createNewsScrapbook = function(user){
+  
+}

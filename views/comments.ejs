@@ -1,50 +1,50 @@
 <%- include('partials/header', {title:"Index"}) -%>
 
 <div class="leftpage">
-<div id="messages">
- <h3>Messages</h3>
- <textarea id="messagesDisplay" name="story"
-        rows="20" cols="50">
-</textarea><br>
-<input type="text" id="messageInput"><button type="button" id="sendButton">Send</button><br>
+  <div id="messages">
+   <h3>Messages</h3>
+   <textarea id="messagesDisplay" name="story"
+          rows="20" cols="50">
+  </textarea><br>
+  <input type="text" id="messageInput"><button type="button" id="sendButton">Send</button><br>
 
-</div>
-<span id="numClientsDisplay">Participants: 0<span>
+  </div>
+  <span id="numClientsDisplay">Participants: 0<span>
 
-<script>
-  let socket = io.connect('/');//the default namespace
-  socket.emit('connectionEvent', {userFirstName:'<%=userFirstName%>'});
+  <script>
+    let socket = io.connect('/');//the default namespace
+    socket.emit('connectionEvent', {userFirstName:'<%=userFirstName%>'});
 
-  socket.on('announcement', function(data) {
-      console.log(data)
-      let mDisplay = document.getElementById('messagesDisplay');
-      let text ="";
-      if(data.userFirstName)
-         text = data.userFirstName+": "+data.message+"\n";
-      else
-         text = data.message+"\n";
-      mDisplay.value +=text;
-  });
+    socket.on('announcement', function(data) {
+        console.log(data)
+        let mDisplay = document.getElementById('messagesDisplay');
+        let text ="";
+        if(data.userFirstName)
+           text = data.userFirstName+": "+data.message+"\n";
+        else
+           text = data.message+"\n";
+        mDisplay.value +=text;
+    });
 
-  socket.on('connectionEvent', function(data) {
-      //keep track of the current number of participants in the numClientsDisplay span
-      let numClientsDisplay = document.getElementById('numClientsDisplay');
-      let text = "Participants: " + data.numClients;
-      numClientsDisplay.innerText = text;
-      let mDisplay = document.getElementById('messagesDisplay');
+    socket.on('connectionEvent', function(data) {
+        //keep track of the current number of participants in the numClientsDisplay span
+        let numClientsDisplay = document.getElementById('numClientsDisplay');
+        let text = "Participants: " + data.numClients;
+        numClientsDisplay.innerText = text;
+        let mDisplay = document.getElementById('messagesDisplay');
 
-      text = data.userFirstName+": "+data.message+"\n";
+        text = data.userFirstName+": "+data.message+"\n";
 
-      mDisplay.value =  mDisplay.value.trim()+text;
-  });
+        mDisplay.value =  mDisplay.value.trim()+text;
+    });
 
-  document.getElementById("sendButton").addEventListener('click', function(){
-    let messageData = document.getElementById("messageInput").value;
-    console.log("sending: "+messageData);
-    socket.emit('announcement', { userFirstName:'<%=userFirstName%>', message: messageData });
-  });
+    document.getElementById("sendButton").addEventListener('click', function(){
+      let messageData = document.getElementById("messageInput").value;
+      console.log("sending: "+messageData);
+      socket.emit('announcement', { userFirstName:'<%=userFirstName%>', message: messageData });
+    });
 
-</script>
+  </script>
 </div>
 <div class="rightpage"></div>
 

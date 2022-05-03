@@ -1,5 +1,7 @@
 :root{
-  --background-Color: #FFFFFF:
+  --background-Color: #FFFFFF;
+  --font-Color: #000000;
+  --font-Selected: 'Outfit';
 }
 
 /* navbar */
@@ -35,28 +37,38 @@
 
 /*edit page*/
 .leftpage {
-     width: 47.25%;
-     margin-left: 2.5%;
-     height: 650px;
-     border: 2.5px solid black;
-     float:left;
-     background-color: var(--background-Color);
+  width: 47.25%;
+  margin-left: 2.5%;
+  height: 650px;
+  border: 2.5px solid black;
+  float:left;
+  background-color: var(--background-Color);
+  font-family: var(--font-Selected);
+  color: var(--font-Color);
 }
 .rightpage {
-     width: 47.25%;
-     margin-right: 2.5%;
-     height: 650px;
-     border: 2.5px solid black;
-     float:left;
-     background-color: var(--background-Color);
+  width: 47.25%;
+  margin-right: 2.5%;
+  height: 650px;
+  border: 2.5px solid black;
+  float:left;
+  background-color: var(--background-Color);
+  font-family: var(--font-Selected);
+  color: var(--font-Color);
+
+}
+
+h3{
+  margin-left: 5%;
+  margin-top: 2%;
 }
 
 /*toolbox*/
 .toolbox  {
   width: 89%;
   z-index: 1;
-  height: 70px;
-  top: 730px;
+  height: 100px;
+  margin-top: 750px;
   margin-left: 2.5%;
   background-color: #C2C2C2;
   transition: 0.5s;
