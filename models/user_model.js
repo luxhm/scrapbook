@@ -6,11 +6,11 @@ exports.getUser = function(){
   return users;
 }
 
-exports.createUser =  function (userID, userName){
+exports.createUser =  function (userID, userFirstName){
   let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
   if(!users[userID]){
     let newUser={
-      "Name": userName,
+      "userFirstName": userFirstName,
       "birthdate": [],
       "birthplace": [],
       "birthtime": [],

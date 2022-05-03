@@ -17,4 +17,12 @@ router.get('/edit', function(request, response) {
   }
 });
 
+
+router.get('/comments', function(request, response) {
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html')
+  response.render("views/comments");
+});
+
+
 module.exports = router

@@ -1,3 +1,7 @@
+:root{
+  --background-Color: #FFFFFF:
+}
+
 /* navbar */
 .sidenav {
   height: 100%;
@@ -36,7 +40,7 @@
      height: 650px;
      border: 2.5px solid black;
      float:left;
-
+     background-color: var(--background-Color);
 }
 .rightpage {
      width: 47.25%;
@@ -44,6 +48,7 @@
      height: 650px;
      border: 2.5px solid black;
      float:left;
+     background-color: var(--background-Color);
 }
 
 /*toolbox*/
