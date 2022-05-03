@@ -11,11 +11,13 @@ exports.createUser =  function (userID, userFirstName){
   if(!users[userID]){
     let newUser={
       "userFirstName": userFirstName,
-      "birthdate": [],
-      "birthplace": [],
-      "birthtime": [],
+      "scrapbooks": []
     }
     users[userID] = newUser;
     fs.writeFileSync(__dirname+'/../data/users.json', JSON.stringify(users));
   }
+}
+
+exports.updateUser = function (scrapbookName){
+  //this will save the new scrapbooks that the user creates to their profile
 }
