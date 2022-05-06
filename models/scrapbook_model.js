@@ -9,8 +9,30 @@ exports.saveScrapbook = function(scrapbookOject){
 
 exports.updateScrapbook = function(scrapbookObject){
   //updates an old scrapbook in the scrapbooks json
+  let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
+  let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
+
+  //const newPage = new Object();
 }
 
-exports.createNewsScrapbook = function(user){
-  
+exports.createNewScrapbook = function(userID, scrapbookName){
+  let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
+  let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
+
+  if(!scrapbooks[scrapbookName]){
+    let newScrapbook={
+      "Name": userFirstName,
+      "User": users[userID],
+      "Page": {
+        "Page number", 1
+        "Images": [],
+        "Background color": ,
+        "Font color": ,
+        "Font": ,
+      }
+
+    }
+    scrapbooks[scrapbookName] = newScrapbook;
+    fs.writeFileSync(__dirname+'/../data/scrapbooks.json', JSON.stringify(scrapbooks));
+  }
 }
