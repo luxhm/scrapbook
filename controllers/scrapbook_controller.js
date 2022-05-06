@@ -65,9 +65,17 @@ router.post('/upload/photo', privateUpload.single('picture'), async(request, res
   let photoLocations=[];
   let fileURL = await File.uploadFile(file);
   photoLocations.push(fileURL);
-  response.render('views/confirmation',{
+  /*response.render('views/confirmation',{
     photoLocations: photoLocations
+  });*/
+
+  //this does not send the USER DATA 
+  response.render("views/edit", {
+    scrapbooks: Scrapbook.getScrapbook(),
+    scrapbookName: "firstScrapbook"
   });
+
+  console.log("File uploaded!")
 })
 /*
 app.post('/uploadfile', privateUpload.any(), async (request, response) => {

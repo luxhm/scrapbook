@@ -1,9 +1,11 @@
+const fs = require('fs');
+
 exports.getScrapbook = function(){
   let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
   return scrapbooks;
 }
 
-exports.saveScrapbook = function(scrapbookOject){
+exports.saveScrapbook = function(scrapbookObject){
   //saves the new scrapbook to the scrapbooks json
 }
 
@@ -13,6 +15,16 @@ exports.updateScrapbook = function(scrapbookObject){
   let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
 
   //const newPage = new Object();
+}
+
+exports.addImage = function(scrapbookName, image){
+  console.log(scrapbookName);
+  console.log(image);
+  let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
+  scrapbooks[scrapbookName]["Page1"]["Images"].push(image);
+  console.log(scrapbooks[scrapbookName]["Page1"]["Images"]);
+  fs.writeFileSync(__dirname+'/../data/scrapbooks.json', JSON.stringify(scrapbooks));
+
 }
 
 exports.createNewScrapbook = function(userID, scrapbookName){
@@ -28,7 +40,7 @@ exports.createNewScrapbook = function(userID, scrapbookName){
         "Images": [],
         "Background color": "" ,
         "Font color": "",
-        "Font": "",
+        "Font": ""
       }
 
     }

@@ -4,6 +4,8 @@
   Don't forget to give the service account edit access to the folder
   and enable View access to anyone on the internet
 */
+const Scrapbook = require('../models/scrapbook_model');
+
 const fs = require('fs');
 const {google} = require('googleapis');
 
@@ -30,7 +32,7 @@ let fileMetadata = {
 exports.uploadFile = async function(file) {
   let scrapbooks = JSON.parse(fs.readFileSync('data/scrapbooks.json'));
   console.log(scrapbooks);
-  
+
   let fileURL = "";
   let filePath = __dirname+"/../"+file.path;
 
@@ -54,6 +56,8 @@ exports.uploadFile = async function(file) {
         console.error('Error creating the file, ' + response.errors);
         break;
   }
+  Scrapbook.addImage("firstScrapbook", fileURL);
+
   return fileURL;
 }
 
