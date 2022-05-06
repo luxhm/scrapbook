@@ -58,6 +58,12 @@
 
 }
 
+.leftimage {
+  margin-left: 15%;
+  margin-top: 15%;
+  float:left;
+}
+
 h3{
   margin-left: 5%;
   margin-top: 2%;
