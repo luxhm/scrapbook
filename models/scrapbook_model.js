@@ -15,7 +15,6 @@ exports.updateScrapbook = function(scrapbookObject){
   //const newPage = new Object();
 }
 
-<<<<<<< Updated upstream
 exports.createNewScrapbook = function(userID, scrapbookName){
   let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
   let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
@@ -25,19 +24,18 @@ exports.createNewScrapbook = function(userID, scrapbookName){
       "Name": userFirstName,
       "User": users[userID],
       "Page": {
-        "Page number", 1
+        "Page number": 1,
         "Images": [],
-        "Background color": ,
-        "Font color": ,
-        "Font": ,
+        "Background color": "" ,
+        "Font color": "",
+        "Font": "",
       }
 
     }
     scrapbooks[scrapbookName] = newScrapbook;
     fs.writeFileSync(__dirname+'/../data/scrapbooks.json', JSON.stringify(scrapbooks));
   }
-=======
+}
 exports.createNewScrapbook = function(user){
 
->>>>>>> Stashed changes
 }
