@@ -65,7 +65,7 @@ router.post('/upload/photo', privateUpload.single('picture'), async(request, res
   let photoLocations=[];
   let fileURL = await File.uploadFile(file);
   photoLocations.push(fileURL);
-  response.render('confirmation',{
+  response.render('views/confirmation',{
     photoLocations: photoLocations
   });
 })
