@@ -23,7 +23,7 @@ const driveService = google.drive({version: 'v3', auth});
 
 let fileMetadata = {
   'name': Date.now()+'_image.png',
-  'parents':  ['1PdsY8TKspLcgMRIM0hYtaCAWby4cZAhN']//gohde: TrinLabs/Cookbook/images
+  'parents':  ['1qsaneNeJwaLhXN-MgMEBAbWVskCbmnoR']//gohde: TrinLabs/Cookbook/images
 };
 
 
