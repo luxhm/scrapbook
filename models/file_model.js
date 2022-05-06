@@ -23,11 +23,12 @@ const driveService = google.drive({version: 'v3', auth});
 
 let fileMetadata = {
   'name': Date.now()+'_image.png',
-  'parents':  ['1qsaneNeJwaLhXN-MgMEBAbWVskCbmnoR']//gohde: TrinLabs/Cookbook/images
+  'parents':  ['1qsaneNeJwaLhXN-MgMEBAbWVskCbmnoR']
 };
 
 
 exports.uploadFile = async function(file) {
+  let scrapbooks = JSON.parse(fs.readFileSync('data/scrapbooks.json'));
   let fileURL = "";
   let filePath = __dirname+"/../"+file.path;
 
@@ -51,7 +52,6 @@ exports.uploadFile = async function(file) {
         console.error('Error creating the file, ' + response.errors);
         break;
   }
-
   return fileURL;
 }
 
