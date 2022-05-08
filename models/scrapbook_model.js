@@ -32,22 +32,19 @@ exports.createNewScrapbook = function(userID, scrapbookName){
   let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
 
   if(!scrapbooks[scrapbookName]){
+    console.log("scrapbook is new");
     let newScrapbook={
-      "Name": userFirstName,
-      "User": users[userID],
+      "User": userID,
       "Page": {
-        "Page number": 1,
+        "PageNumber": 1,
         "Images": [],
-        "Background color": "" ,
-        "Font color": "",
+        "BackgroundColor": "" ,
+        "FontColor": "",
         "Font": ""
       }
-
     }
+    console.log(newScrapbook);
     scrapbooks[scrapbookName] = newScrapbook;
     fs.writeFileSync(__dirname+'/../data/scrapbooks.json', JSON.stringify(scrapbooks));
   }
-}
-exports.createNewScrapbook = function(user){
-
 }

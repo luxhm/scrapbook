@@ -5,8 +5,6 @@ const express = require('express'),
 router = express.Router();
 
 const Scrapbook = require('../models/scrapbook_model');
-
-// SET STORAGE
 let File = require('../models/file_model')
 
 // SET STORAGE
@@ -19,35 +17,6 @@ let privateStorage = multer.diskStorage({
   }
 });
 let privateUpload = multer({ storage: privateStorage });
-
-
-/*
-let publicStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './public/images')
-  },
-  filename: function (req, file, cb) {
-    console.log(file)
-    cb(null, Date.now()+'-'+file.originalname.replace(' ', '-'));
-  }
-});
-let publicUpload = multer({ storage: publicStorage });
-*/
-
-//Uploading to a public static folder
-/*router.post('/upload/photo', publicUpload.single('picture'), (req, res, next) => {
-  const file = req.file;
-  if (!file) {
-    const error = {
-    'httpStatusCode' : 400,
-    'message':'Please upload a file'
-     }
-    res.send(error);
-  }
-  res.render('views/confirmation',{
-    photoLocation: "/images/"+file.filename
-  });
-})*/
 
 router.post('/upload/photo', privateUpload.single('picture'), async(request, response) => {
   console.log("/upload/photo route");
@@ -65,11 +34,8 @@ router.post('/upload/photo', privateUpload.single('picture'), async(request, res
   let photoLocations=[];
   let fileURL = await File.uploadFile(file);
   photoLocations.push(fileURL);
-  /*response.render('views/confirmation',{
-    photoLocations: photoLocations
-  });*/
 
-  //this does not send the USER DATA 
+  //this does not send the USER DATA
   response.render("views/edit", {
     scrapbooks: Scrapbook.getScrapbook(),
     scrapbookName: "firstScrapbook"
@@ -77,27 +43,18 @@ router.post('/upload/photo', privateUpload.single('picture'), async(request, res
 
   console.log("File uploaded!")
 })
-/*
-app.post('/uploadfile', privateUpload.any(), async (request, response) => {
-  console.log("/uploadfile route");
-  const file = request.files[0];
-  console.log(file);
-  console.log(request.body.message);
 
-  if (!file) {
-    const error = {
-    'httpStatusCode' : 400,
-    'message':'Please upload a file'
-     }
-    response.send(error);
-  }
-  let photoLocations=[];
-  let fileURL = await File.uploadFile(file);
-  photoLocations.push(fileURL);
-  response.render('confirmation',{
-    photoLocations: photoLocations
-  });
+router.post('/createScrapbook', async function(request, response) {
+  let scrapbookName = request.body.scrapbookName;
+  let userID = request.user._json.email;
+  console.log(scrapbookName);
+  console.log(userID);
+
+  Scrapbook.createNewScrapbook(userID, scrapbookName);
+
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html');
+  response.redirect("edit");
 });
-*/
 
 module.exports = router
