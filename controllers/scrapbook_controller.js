@@ -5,7 +5,8 @@ const express = require('express'),
 router = express.Router();
 
 const Scrapbook = require('../models/scrapbook_model');
-let File = require('../models/file_model')
+let File = require('../models/file_model');
+const User = require("../models/user_model");
 
 // SET STORAGE
 let privateStorage = multer.diskStorage({
@@ -51,6 +52,7 @@ router.post('/createScrapbook', async function(request, response) {
   console.log(userID);
 
   Scrapbook.createNewScrapbook(userID, scrapbookName);
+  User.updateUser(userID, scrapbookName);
 
   response.status(200);
   response.setHeader('Content-Type', 'text/html');

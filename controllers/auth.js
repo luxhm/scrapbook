@@ -60,11 +60,13 @@ router.get('/auth/google/callback',
   }),
   function(request, response) {
     console.log(userProfile);
+    console.log("hey there");
     let userID = request.user._json.email;
 
     if (userID in User.getUser()){
       console.log("already logged in");
     }else{
+      console.log("number 2");
       User.createUser(userID, userID.split('.')[0]);//only creates if not in users.json
     }
 

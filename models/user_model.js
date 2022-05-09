@@ -18,6 +18,8 @@ exports.createUser =  function (userID, userFirstName){
   }
 }
 
-exports.updateUser = function (scrapbookName){
-  //this will save the new scrapbooks that the user creates to their profile
+exports.updateUser = function (userID, scrapbookName){
+  let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
+  users[userID]["scrapbooks"].push(scrapbookName);
+  fs.writeFileSync(__dirname+'/../data/users.json', JSON.stringify(users));
 }

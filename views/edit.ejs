@@ -1,20 +1,20 @@
 <%- include('partials/header', {title:"Index"}) -%>
 
 <% console.log(scrapbooks); %>
-<% var length = scrapbooks[scrapbookName]["Page1"]["Images"].length %>
+<% var length = scrapbooks[scrapbookName]["1"]["Images"].length %>
   <div class= main>
     <h2> edit page </h2>
     <div class= leftpage>
       <h3> scrapBookTitle (make dynamic later) </h3>
 
       <div class= leftimage>
-        <img src= <%= scrapbooks[scrapbookName]["Page1"]["Images"][length-2]%> width=80% >
+        <img src= <%= scrapbooks[scrapbookName]["1"]["Images"][length-2]%> width=80% >
       </div>
 
     </div>
     <div class= rightpage>
       <div class= rightimage>
-        <img src= <%= scrapbooks[scrapbookName]["Page1"]["Images"][length-1]%> width=80% >
+        <img src= <%= scrapbooks[scrapbookName]["1"]["Images"][length-1]%> width=80% >
       </div>
     </div>
 

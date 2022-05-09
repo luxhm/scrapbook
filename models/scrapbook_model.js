@@ -53,8 +53,7 @@ exports.createNewScrapbook = function(userID, scrapbookName){
     console.log("scrapbook is new");
     let newScrapbook={
       "User": userID,
-      "Page": {
-        "pageNumber": 1,
+      "1": {
         "images": [],
         "backgroundColor": "" ,
         "fontColor": "",
