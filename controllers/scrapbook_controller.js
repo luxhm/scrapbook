@@ -57,4 +57,17 @@ router.post('/createScrapbook', async function(request, response) {
   response.redirect("edit");
 });
 
+router.get('/gallery', function(request, response) {
+  if(request.user){
+    response.status(200);
+    response.setHeader('Content-Type', 'text/html')
+    response.render("views/gallery", {
+      request: request,
+      scrapbooks: Scrapbook.getScrapbook()
+    });
+  }else{
+    response.redirect('/');
+  }
+});
+
 module.exports = router

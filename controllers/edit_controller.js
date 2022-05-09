@@ -7,7 +7,6 @@ const Scrapbook = require('../models/scrapbook_model');
 router.get('/edit', function(request, response) {
   if(request.user){
     let user = User.getUser(request.user._json.email);
-    console.log("new attempt");
     response.status(200);
     response.setHeader('Content-Type', 'text/html')
     response.render("views/edit", {
@@ -18,13 +17,6 @@ router.get('/edit', function(request, response) {
   }else{
     response.redirect('/');
   }
-});
-
-
-router.get('/comments', function(request, response) {
-  response.status(200);
-  response.setHeader('Content-Type', 'text/html')
-  response.render("views/comments");
 });
 
 
