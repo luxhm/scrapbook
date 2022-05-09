@@ -22,9 +22,9 @@ exports.updateScrapbook = function(scrapbookName, pageNumber){
   scrapbookObject[newPage] = {
     "pageNumber": pageNumber++,
     "images": [],
-    "backgroundColor": ,
-    "fontColor": ,
-    "font": ,
+    "backgroundColor": "",
+    "fontColor": "",
+    "font": "",
   }
 }
 
