@@ -5,16 +5,27 @@ exports.getScrapbook = function(){
   return scrapbooks;
 }
 
-exports.saveScrapbook = function(scrapbookObject){
+exports.saveScrapbook = function(scrapbookName, pageNumber, backGroundColor, images, fontColor, font){
   //saves the new scrapbook to the scrapbooks json
+  let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
+  let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
 }
 
-exports.updateScrapbook = function(scrapbookObject){
+exports.updateScrapbook = function(scrapbookName, pageNumber){
   //updates an old scrapbook in the scrapbooks json
   let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
   let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
 
-  //const newPage = new Object();
+  let scrapbookObject = scrapbooks[scrapbookName] // = object of scrapbook
+  const newPage = new Object();
+
+  scrapbookObject[newPage] = {
+    "pageNumber": pageNumber++,
+    "images": [],
+    "backgroundColor": ,
+    "fontColor": ,
+    "font": ,
+  }
 }
 
 exports.addImage = function(scrapbookName, image){
@@ -36,11 +47,11 @@ exports.createNewScrapbook = function(userID, scrapbookName){
     let newScrapbook={
       "User": userID,
       "Page": {
-        "PageNumber": 1,
-        "Images": [],
-        "BackgroundColor": "" ,
-        "FontColor": "",
-        "Font": ""
+        "pageNumber": 1,
+        "images": [],
+        "backgroundColor": "" ,
+        "fontColor": "",
+        "font": ""
       }
     }
     console.log(newScrapbook);
