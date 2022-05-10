@@ -25,7 +25,7 @@ router.get('/comments', function(request, response) {
   response.render("views/comments");
 });
 
-router.post('/saveScrapbook', function(request, response) {
+router.post('/saveScrapbook', function(request, response) { //this is all undefined -- figure out how to save these variables from model
   let scrapbookName = request.body.scrapbookName;
   let pageNumber = request.body.currentPageNumber;
   let backgroundColor = request.body.currentBackgroundColor;
