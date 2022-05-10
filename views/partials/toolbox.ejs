@@ -23,6 +23,18 @@
   <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
   </svg></button></a>
 
+  <div id = "saveButton">
+  <form action="/saveScrapbook" method="POST">
+    <label for="scrapbookName">Save</label>
+    <input type="hidden" name="pageNumber" id="pageNumber" value=""/>
+    <input type="hidden" name="backgroundColor" id="backgroundColor" value=""/>
+    <input type="hidden" name="images" id="images" value="" />
+    <input type="hidden" name="fontColor" id="fontColor" value=""/>
+    <input type="hidden" name="font" id="font" value=""/>
+
+    <input type="submit" value="Save scrapbook!">
+  </form>
+  </div>
   <!--Dropdowns for selectors-->
   <div id="ColorForm" style="display:none">
     <br>
@@ -102,7 +114,7 @@
     rightpage.style.setProperty('--font-Selected', fontSelector.value)
   });
 
-
+  //var input = document.getElementById("").value;
   </script>
 </div>
 </div>
