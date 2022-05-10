@@ -23,27 +23,26 @@
   <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
   </svg></button></a>
 
+  <a>
   <div id = "saveButton">
   <form action="/saveScrapbook" method="POST">
-    <label for="scrapbookName">Save</label>
-    <input type="hidden" name="pageNumber" id="pageNumber" value=""/>
-    <input type="hidden" name="backgroundColor" id="backgroundColor" value=""/>
-    <input type="hidden" name="images" id="images" value="" />
-    <input type="hidden" name="fontColor" id="fontColor" value=""/>
-    <input type="hidden" name="font" id="font" value=""/>
-
-    <input type="submit" value="Save scrapbook!">
+    <label for="scrapbookName"></label>
+    <input type="hidden" name="scrapbookName" id="scrapbookName" value=" "/>
+    <input type="hidden" name="backgroundColor" id="currentBackgroundColor" value=" "/>
+    <input type="hidden" name="fontColor" id="currentFontColor" value=" "/>
+    <input type="hidden" name="font" id="currentFont" value=" "/>
+    <input type="submit" value="Save" onclick="consoleLog()">
   </form>
-  </div>
+  </div></a>
   <!--Dropdowns for selectors-->
   <div id="ColorForm" style="display:none">
     <br>
-    <a>Select Color:<button><input class="backgroundPicker" type="color" value="#ff4545"></button></a>
+    <a>Select Color:<button><input class="backgroundSelector" type="color" value="#ff4545"></button></a>
   </div>
 
   <div id="FontForm" style="display:none">
     <br>
-    <a>Select Color:<button><input class="fontColorPicker" type="color" value="#ff4545"></button></a>
+    <a>Select Color:<button><input class="fontColorSelector" type="color" value="#ff4545"></button></a>
 
     <a> <label for="fontSelector">Font:</label>
     <select name="fontFamily" class="fontSelector">
@@ -83,15 +82,6 @@
     }
   }
 
-  var backgroundColor = document.querySelector('.backgroundPicker');
-  var leftpage = document.querySelector('.leftpage');
-  var rightpage = document.querySelector('.rightpage');
-
-  backgroundColor.addEventListener('change', function(){
-    leftpage.style.setProperty('--background-Color', backgroundColor.value)
-    rightpage.style.setProperty('--background-Color', backgroundColor.value)
-  });
-
   function toggleFontTool() {
     var selector = document.getElementById("FontForm");
     if (selector.style.display === "block") {
@@ -101,20 +91,36 @@
     }
   }
 
-  var fontColor = document.querySelector('.fontColorPicker');
-  var fontSelector = document.querySelector('.fontSelector');
+  var leftpage = document.querySelector('.leftpage');
+  var rightpage = document.querySelector('.rightpage');
 
-  fontColor.addEventListener('change', function(){
-    leftpage.style.setProperty('--font-Color', fontColor.value)
-    rightpage.style.setProperty('--font-Color', fontColor.value)
+  var backgroundColorSelector = document.querySelector('.backgroundSelector');
+  var myBackgroundColor = document.getElementById("currentBackgroundColor").value;
+  backgroundColorSelector.addEventListener('change', function(){
+    leftpage.style.setProperty('--background-Color', backgroundColorSelector.value)
+    rightpage.style.setProperty('--background-Color', backgroundColorSelector.value)
+    myBackgroundColor = backgroundColorSelector.value;
+    console.log(myBackgroundColor);
   });
 
+  var fontColorSelector = document.querySelector('.fontColorSelector');
+  var myFontColor = document.getElementById("currentFontColor").value;
+  fontColorSelector.addEventListener('change', function(){
+    leftpage.style.setProperty('--font-Color', fontColorSelector.value)
+    rightpage.style.setProperty('--font-Color', fontColorSelector.value)
+    myFontColor = fontColorSelector.value;
+    console.log(myFontColor);
+  });
+
+  var fontSelector = document.querySelector('.fontSelector');
+  var myFont = document.getElementById("currentFont").value;
   fontSelector.addEventListener('change', function(){
     leftpage.style.setProperty('--font-Selected', fontSelector.value)
     rightpage.style.setProperty('--font-Selected', fontSelector.value)
+    myFont = fontSelector.value;
+    console.log(myFont);
   });
 
-  //var input = document.getElementById("").value;
   </script>
 </div>
 </div>

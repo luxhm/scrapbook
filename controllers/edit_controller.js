@@ -27,15 +27,18 @@ router.get('/comments', function(request, response) {
 
 router.post('/saveScrapbook', function(request, response) {
   let scrapbookName = request.body.scrapbookName;
-  let pageNumber = request.body.pageNumber;
-  let backgroundColor = request.body.backgroundColor;
-  let images = request.body.images;
-  let fontColor = request.body.fontColor;
-  let font = request.body.font;
+  let pageNumber = request.body.currentPageNumber;
+  let backgroundColor = request.body.currentBackgroundColor;
+  let fontColor = request.body.currentFontColor;
+  let font = request.body.currentFont;
 
-  let userID = request.user._json.email;
+  console.log("save" + scrapbookName);
+  console.log("save" + pageNumber);
+  console.log("save" + backgroundColor);
+  console.log("save" + fontColor);
+  console.log("save" + font);
 
-  Scrapbook.saveScrapbook(scrapbookName, pageNumber, backgroundColor, images, fontColor, font); // scrapbookName, pageNumber, backgroundColor, images, fontColor, font
+  Scrapbook.saveScrapbook(scrapbookName, pageNumber, backgroundColor, fontColor, font); // scrapbookName, pageNumber, backgroundColor, images, fontColor, font
 
   response.status(200);
   response.setHeader('Content-Type', 'text/html');

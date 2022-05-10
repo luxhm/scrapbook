@@ -5,17 +5,21 @@ exports.getScrapbook = function(){
   return scrapbooks;
 }
 
-exports.saveScrapbook = function(scrapbookName, pageNumber, backgroundColor, images, fontColor, font){
+exports.saveScrapbook = function(scrapbookName, pageNumber, backgroundColor, fontColor, font){
   //saves the new scrapbook to the scrapbooks json
   let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
   let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
 
+  console.log(scrapbooks);
   myScrapbook = scrapbooks[scrapbookName];
+  console.log(pageNumber); //undefined
+  console.log(myScrapbook); //undefined
 
-  myScrapbook[pageNumber].backgroundColor = backgroundColor;
-  myScrapbook[pageNumber].images = images;
-  myScrapbook[pageNumber].fontColor = fontColor;
-  myScrapbook[pageNumber].font = font;
+  myScrapbook[pageNumber] = {
+    "backgroundColor": backgroundColor,
+    "fontColor": fontColor,
+    "font": font,
+  }
 }
 
 exports.updateScrapbook = function(scrapbookName, pageNumber){
@@ -27,7 +31,6 @@ exports.updateScrapbook = function(scrapbookName, pageNumber){
   const newPage = new Object();
 
   scrapbookObject[newPage] = {
-    "pageNumber": pageNumber++,
     "images": [],
     "backgroundColor": " ",
     "fontColor": " ",
@@ -39,8 +42,8 @@ exports.addImage = function(scrapbookName, image){
   console.log(scrapbookName);
   console.log(image);
   let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
-  scrapbooks[scrapbookName]["Page1"]["Images"].push(image);
-  console.log(scrapbooks[scrapbookName]["Page1"]["Images"]);
+  scrapbooks[scrapbookName]["1"]["Images"].push(image);
+  console.log(scrapbooks[scrapbookName]["1"]["Images"]);
   fs.writeFileSync(__dirname+'/../data/scrapbooks.json', JSON.stringify(scrapbooks));
 
 }
