@@ -1,11 +1,16 @@
 <%- include('partials/header', {title:"Index"}) -%>
 
-<% console.log(scrapbooks); %>
-<% var length = scrapbooks[scrapbookName]["1"]["Images"].length %>
   <div class= main>
+
+    <% var newestBook = users[userID]["scrapbooks"][users[userID]["scrapbooks"].length-1] %>
+    <% console.log(scrapbooks[newestBook]["1"]); %>
+    <% if (scrapbooks[newestBook]["1"]["Images"]){ %>
+    <% var length = scrapbooks[newestBook]["1"]["Images"].length %>
+
     <h2> edit page </h2>
+    <h3> <%=newestBook %> </h3>
+
     <div class= leftpage>
-      <h3> scrapBookTitle (make dynamic later) </h3>
 
       <div class= leftimage>
         <img src= <%= scrapbooks[scrapbookName]["1"]["Images"][length-2]%> width=80% >
@@ -14,9 +19,27 @@
     </div>
     <div class= rightpage>
       <div class= rightimage>
-        <img src= <%= scrapbooks[scrapbookName]["1"]["Images"][length-1]%> width=80% >
+       <% if (scrapbooks[newestBook]["1"]["Images"] >1){ %>
+         <img src= <%= scrapbooks[scrapbookName]["1"]["Images"][length-1]%> width=80% >
+       <% } %>
       </div>
     </div>
+    <% } else{ %>
+      <h2> edit page </h2>
+      <h3> <%=newestBook %> </h3>
+
+      <div class= leftpage>
+
+        <div class= leftimage>
+        </div>
+
+      </div>
+      <div class= rightpage>
+        <div class= rightimage>
+        </div>
+      </div>
+
+    <% } %>
 
   </div>
 

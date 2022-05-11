@@ -10,9 +10,9 @@ router.get('/edit', function(request, response) {
     response.status(200);
     response.setHeader('Content-Type', 'text/html')
     response.render("views/edit", {
-      userFirstName: user[request.user._json.email].Name,
-      scrapbooks: Scrapbook.getScrapbook(),
-      scrapbookName: "firstScrapbook"
+      userID: request.user._json.email,
+      users: User.getUser(),
+      scrapbooks: Scrapbook.getScrapbook()
     });
   }else{
     response.redirect('/');

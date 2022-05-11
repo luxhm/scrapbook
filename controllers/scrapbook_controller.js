@@ -36,20 +36,17 @@ router.post('/upload/photo', privateUpload.single('picture'), async(request, res
   let fileURL = await File.uploadFile(file);
   photoLocations.push(fileURL);
 
+  Scrapbook.addImage("hey hey", fileURL);
   //this does not send the USER DATA
   response.render("views/edit", {
     scrapbooks: Scrapbook.getScrapbook(),
-    scrapbookName: "firstScrapbook"
+    users: User.getUser()
   });
-
-  console.log("File uploaded!")
 })
 
 router.post('/createScrapbook', async function(request, response) {
   let scrapbookName = request.body.scrapbookName;
   let userID = request.user._json.email;
-  console.log(scrapbookName);
-  console.log(userID);
 
   Scrapbook.createNewScrapbook(userID, scrapbookName);
   User.updateUser(userID, scrapbookName);

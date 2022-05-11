@@ -31,7 +31,6 @@ let fileMetadata = {
 
 exports.uploadFile = async function(file) {
   let scrapbooks = JSON.parse(fs.readFileSync('data/scrapbooks.json'));
-  console.log(scrapbooks);
 
   let fileURL = "";
   let filePath = __dirname+"/../"+file.path;

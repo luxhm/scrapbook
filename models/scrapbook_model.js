@@ -53,7 +53,6 @@ exports.createNewScrapbook = function(userID, scrapbookName){
   let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
 
   if(!scrapbooks[scrapbookName]){
-    console.log("scrapbook is new");
     let newScrapbook={
       "User": userID,
       "1": {
@@ -63,7 +62,6 @@ exports.createNewScrapbook = function(userID, scrapbookName){
         "font": ""
       }
     }
-    console.log(newScrapbook);
     scrapbooks[scrapbookName] = newScrapbook;
     fs.writeFileSync(__dirname+'/../data/scrapbooks.json', JSON.stringify(scrapbooks));
   }
