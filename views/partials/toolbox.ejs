@@ -27,24 +27,24 @@
   <div id = "saveButton">
   <form action="/saveScrapbook" method="POST">
     <label for="scrapbookName"></label>
-    <input type="hidden" name="scrapbookName" id="scrapbookName" value=" "/>
-    <input type="hidden" name="backgroundColor" id="currentBackgroundColor" value=" "/>
-    <input type="hidden" name="fontColor" id="currentFontColor" value=" "/>
-    <input type="hidden" name="font" id="currentFont" value=" "/>
-    <input type="submit" value="Save" onclick="consoleLog()">
+    <input type="hidden" name="scrapbookName" id="scrapbookName" value="name"/>
+    <input type="hidden" name="backgroundColor" id="currentBackgroundColor" value="color"/>
+    <input type="hidden" name="fontColor" id="currentFontColor" value="font color"/>
+    <input type="hidden" name="font" id="currentFont" value="font"/>
+    <input type="submit" value="Save" onclick="saveValues()">
   </form>
   </div></a>
-  <!--Dropdowns for selectors-->
+  <!--Dropdowns for selectors--> 
+  <!-- Make one singular form to post-->
+  <form action="/saveScrapbook" method="POST">
   <div id="ColorForm" style="display:none">
-    <br>
-    <a>Select Color:<button><input class="backgroundSelector" type="color" value="#ff4545"></button></a>
+    <br><a>Select Color:<button><input class="backgroundSelector" type="color" value="#ff4545"></button></a>
   </div>
 
   <div id="FontForm" style="display:none">
-    <br>
-    <a>Select Color:<button><input class="fontColorSelector" type="color" value="#ff4545"></button></a>
+    <br><a>Select Color:<button><input class="fontColorSelector" type="color" value="#ff4545"></button></a>
 
-    <a> <label for="fontSelector">Font:</label>
+    <a><label for="fontSelector">Font:</label>
     <select name="fontFamily" class="fontSelector">
     <option value="Outfit">Outfit</option>
     <option value="Courier New">Courier New</option>
@@ -62,6 +62,8 @@
     <input type="submit" value="Upload Photo" />
   </form>
   </div>
+  </form>
+
 
   <script>
   function toggleImageTool() {
@@ -120,6 +122,19 @@
     myFont = fontSelector.value;
     console.log(myFont);
   });
+
+/*  saveValues(){ //makes the toggle functions not work
+    var backgroundColorSelector = document.querySelector('.backgroundSelector');
+    var myBackgroundColor = document.getElementById("currentBackgroundColor").value;
+    var fontColorSelector = document.querySelector('.fontColorSelector');
+    var myFontColor = document.getElementById("currentFontColor").value;
+    var fontSelector = document.querySelector('.fontSelector');
+    var myFont = document.getElementById("currentFont").value;
+
+    myBackgroundColor = backgroundColorSelector.value;
+    myFontColor = fontColorSelector.value;
+    myFont = fontSelector.value;
+  } */
 
   </script>
 </div>
