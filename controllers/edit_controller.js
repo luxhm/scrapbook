@@ -26,17 +26,17 @@ router.get('/comments', function(request, response) {
 });
 
 router.post('/saveScrapbook', function(request, response) { //this is all undefined -- figure out how to save these variables from model
-  let scrapbookName = request.body.scrapbookName;
+  let scrapbookName = request.body.scrapbookName; //these are all undefined
   let pageNumber = request.body.currentPageNumber;
   let backgroundColor = request.body.currentBackgroundColor;
   let fontColor = request.body.currentFontColor;
   let font = request.body.currentFont;
 
-  console.log("save" + scrapbookName);
-  console.log("save" + pageNumber);
-  console.log("save" + backgroundColor);
-  console.log("save" + fontColor);
-  console.log("save" + font);
+  console.log("save " + scrapbookName);
+  console.log("save " + pageNumber);
+  console.log("save " + backgroundColor);
+  console.log("save " + fontColor);
+  console.log("save " + font);
 
   Scrapbook.saveScrapbook(scrapbookName, pageNumber, backgroundColor, fontColor, font); // scrapbookName, pageNumber, backgroundColor, images, fontColor, font
 
