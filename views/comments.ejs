@@ -6,7 +6,11 @@
    <textarea id="messagesDisplay" name="story"
           rows="20" cols="50">
   </textarea><br>
-  <input type="text" id="messageInput"><button type="button" id="sendButton">Send</button><br>
+
+  <form action="/saveComment" method="POST">
+  <input type="text" id="messageInput">
+  <button type="button" id="sendButton">Send</button><br>
+  </form>
 
   </div>
   <span id="numClientsDisplay">Participants: 0<span>
@@ -35,13 +39,19 @@
 
         text = data.userFirstName+": "+data.message+"\n";
 
-        mDisplay.value =  mDisplay.value.trim()+text;
+        mDisplay.value = mDisplay.value.trim()+text;
     });
 
     document.getElementById("sendButton").addEventListener('click', function(){
       let messageData = document.getElementById("messageInput").value;
       console.log("sending: "+messageData);
       socket.emit('announcement', { userFirstName:'<%=userFirstName%>', message: messageData });
+
+      let comment = {
+        userFirstName:'<%=userFirstName%>',
+        message: messageData
+      }
+      console.log(comment);
     });
 
   </script>

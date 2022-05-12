@@ -10,7 +10,7 @@ router.get('/comments', function(request, response) {
     response.status(200);
     response.setHeader('Content-Type', 'text/html')
     response.render("views/comments", {
-      userFirstName: user[request.user._json.email].Name,
+      userFirstName: user[request.user._json.email].userFirstName,
       scrapbooks: Scrapbook.getScrapbook(),
       scrapbookName: "firstScrapbook"
     });
