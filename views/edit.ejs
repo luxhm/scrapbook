@@ -1,5 +1,10 @@
 <%- include('partials/header', {title:"Index"}) -%>
+
+<%  console.log("hello1"); %>
+
   <script>
+    console.log("hello2");
+    console.log("backgroundColor " + scrapbooks[scrapbookName]["1"]["backgroundColor"]);
     if ('--background-Color' != #FFFFFF) {
     var leftpage = document.getElementByClassName('leftpage');
     var rightpage = document.getElementByClassName('rightpage');
@@ -15,6 +20,8 @@
     }
 
   </script>
+
+  <%  console.log("hello3"); %>
 
   <br>
   <div class= main>
