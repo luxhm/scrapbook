@@ -51,7 +51,7 @@
   margin-right: 2.5%;
   height: 650px;
   border: 2.5px solid black;
-  float:left;
+  float:right;
   background-color: var(--background-Color);
   font-family: var(--font-Selected);
   color: var(--font-Color);
