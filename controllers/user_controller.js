@@ -10,9 +10,11 @@ router.get('/comments', function(request, response) {
     response.status(200);
     response.setHeader('Content-Type', 'text/html')
     response.render("views/comments", {
+      userID: request.user._json.email,
+      users: User.getUser(),
       userFirstName: user[request.user._json.email].userFirstName,
       scrapbooks: Scrapbook.getScrapbook(),
-      scrapbookName: "firstScrapbook"
+      scrapbookName: scrapbookName
     });
   }else{
     response.redirect('/');
@@ -35,7 +37,6 @@ router.get('/gallery', function(request, response) {
 });
 
 router.post("/editFromGallery", function(request, response) {
-
   let scrapbookName = request.body.scrapbookName;
   let userID = request.user._json.email;
   response.status(200);
@@ -49,15 +50,16 @@ router.post("/editFromGallery", function(request, response) {
 });
 
 router.post("/commentFromGallery", function(request, response) {
-
   let scrapbookName = request.body.scrapbookName;
   let userID = request.user._json.email;
-  console.log("usercontroller " + scrapbookName);
+  let user = User.getUser(request.user._json.email);
+
   response.status(200);
   response.setHeader('Content-Type', 'text/html');
   response.render("views/comments", {
     userID: request.user._json.email,
     users: User.getUser(),
+    userFirstName: user[request.user._json.email].userFirstName,
     scrapbooks: Scrapbook.getScrapbook(),
     scrapbookName: scrapbookName
   });
