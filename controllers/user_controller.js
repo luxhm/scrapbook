@@ -3,6 +3,8 @@ router = express.Router();
 
 const User = require('../models/user_model');
 const Scrapbook = require('../models/scrapbook_model');
+const Comments = require('../models/comment_model');
+
 
 router.get('/comments', function(request, response) {
   if(request.user){
@@ -19,6 +21,26 @@ router.get('/comments', function(request, response) {
   }else{
     response.redirect('/');
   }
+});
+
+router.post("/saveComment", function(request, response) {
+  let scrapbookName = request.body.scrapbookName;
+  let userID = request.user._json.email;
+  let user = User.getUser(request.user._json.email);
+  let comment = request.body.messageInput;
+  console.log("usercontroller " + comment);
+  console.log("usercontroller " + scrapbookName);
+  Comments.saveComment(scrapbookName, userID, comment);
+
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html');
+  response.render("views/comments", {
+    userID: request.user._json.email,
+    users: User.getUser(),
+    userFirstName: user[request.user._json.email].userFirstName,
+    scrapbooks: Scrapbook.getScrapbook(),
+    scrapbookName: scrapbookName
+  });
 });
 
 router.get('/gallery', function(request, response) {
