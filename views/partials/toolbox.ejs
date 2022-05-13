@@ -47,12 +47,13 @@
 <% console.log("toolbox "+ scrapbookName) %>
   <div id="ImageForm" style="display:none">
   <form action="/upload/photo" enctype="multipart/form-data" method="POST" class="button">
-    <input type="hidden" id="scrapbookName" name="scrapbookName" value= <%=scrapbookName%> >
-    <input type="file" name="picture" accept="image/*" required/>
+    <input type="file" name="picture" accept="image/*" />
+    <input type="hidden" id="scrapbookName" name="scrapbookName" value= <%=scrapbookName%> />
     <br>
-    <input type="submit" value="Upload Photo" />
+    <input type="submit" value="Upload Photo" required/>
   </form>
   </div>
+
 
   <script>
   function toggleImageTool() {

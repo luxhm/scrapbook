@@ -22,9 +22,9 @@ let privateUpload = multer({ storage: privateStorage });
 router.post('/upload/photo', privateUpload.any(), async(request, response) => {
   console.log("/upload/photo route");
   //const file = request.files[0];
-  const file = request.file;
+  const file = request.files[0];
   console.log(file);
-  const scrapbook = request.scrapbookName;
+  const scrapbook = request.body.scrapbookName;
   console.log("scrapbookcontroller " + scrapbook);
 
 
