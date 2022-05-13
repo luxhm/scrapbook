@@ -47,26 +47,32 @@ router.post('/upload/photo', privateUpload.single('picture'), async(request, res
 router.post('/createScrapbook', async function(request, response) {
   let scrapbookName = request.body.scrapbookName;
   let userID = request.user._json.email;
+  let users = User.getUser();
+  let userScrapbooks = users[userID]["scrapbooks"];
+  console.log(userScrapbooks);
+  console.log(scrapbookName);
 
-  Scrapbook.createNewScrapbook(userID, scrapbookName);
-  User.updateUser(userID, scrapbookName);
+  function hasWhiteSpace(s) {
+    return s.includes(' ')
+  }
 
+  if (userScrapbooks.includes(scrapbookName)){
+    console.log("you can't reuse this name");
+
+  } else if (scrapbookName.includes(" ")){
+    console.log("you can't have spaces in your scrapbook name");
+
+  } else{
+    console.log("true");
+    Scrapbook.createNewScrapbook(userID, scrapbookName);
+    User.updateUser(userID, scrapbookName);
+
+  }
   response.status(200);
   response.setHeader('Content-Type', 'text/html');
-  response.redirect("edit");
+  response.redirect("gallery");
+
 });
 
-router.get('/gallery', function(request, response) {
-  if(request.user){
-    response.status(200);
-    response.setHeader('Content-Type', 'text/html')
-    response.render("views/gallery", {
-      request: request,
-      scrapbooks: Scrapbook.getScrapbook()
-    });
-  }else{
-    response.redirect('/');
-  }
-});
 
 module.exports = router

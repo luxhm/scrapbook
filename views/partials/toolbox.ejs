@@ -85,31 +85,37 @@
   var rightpage = document.querySelector('.rightpage');
 
   var backgroundColorSelector = document.querySelector('.backgroundSelector');
+  console.log(backgroundColorSelector.value);
+
   var myBackgroundColor = document.getElementById("backgroundSelector").value;
+  console.log(myBackgroundColor);
+
   backgroundColorSelector.addEventListener('change', function(){
     leftpage.style.setProperty('--background-Color', backgroundColorSelector.value)
     rightpage.style.setProperty('--background-Color', backgroundColorSelector.value)
+    console.log(myBackgroundColor);
+    myBackgroundColor = backgroundColorSelector.value;
   });
-  myBackgroundColor = backgroundColorSelector.value;
-  console.log(myBackgroundColor);
+
 
   var fontColorSelector = document.querySelector('.fontColorSelector');
   var myFontColor = document.getElementById("fontColorSelector").value;
   fontColorSelector.addEventListener('change', function(){
     leftpage.style.setProperty('--font-Color', fontColorSelector.value)
     rightpage.style.setProperty('--font-Color', fontColorSelector.value)
+    myFontColor = fontColorSelector.value;
+    console.log(myFontColor);
   });
-  myFontColor = fontColorSelector.value;
-  console.log(myFontColor);
 
   var fontSelector = document.querySelector('.fontSelector');
   var myFont = document.getElementById("fontSelector").value;
   fontSelector.addEventListener('change', function(){
     leftpage.style.setProperty('--font-Selected', fontSelector.value)
     rightpage.style.setProperty('--font-Selected', fontSelector.value)
+    myFont = fontSelector.value;
+    console.log(myFont);
   });
-  myFont = fontSelector.value;
-  console.log(myFont);
+
   </script>
 </div>
 </div>

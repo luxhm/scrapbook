@@ -12,9 +12,9 @@ exports.saveScrapbook = function(userID, scrapbookName, pageNumber, backgroundCo
 
   //console.log(scrapbooks); //undefined
   let myScrapbook = scrapbooks[scrapbookName]; //this is undefined rn
-  console.log(userID);
+  console.log("name" + userID);
   //console.log(pageNumber); //undefined
-  //console.log(myScrapbook); //undefined 
+  //console.log(myScrapbook); //undefined
 
   myScrapbook[pageNumber] = {
     "backgroundColor": backgroundColor,

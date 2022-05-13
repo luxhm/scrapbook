@@ -1,5 +1,25 @@
 <%- include('partials/header', {title:"Gallery"}) -%>
 <div class=main>
-  <h2> <% console.log(scrapbooks) %> </h2>
+
+  <h2> Your Scrapbooks: </h2>
+  <br>
+  <% for (let i=0; i< users[userID]["scrapbooks"].length; i++){ %>
+   <h2> <%=users[userID]["scrapbooks"][i]%> </h2>
+   <% console.log(users[userID]["scrapbooks"][i]) %>
+   
+   <form action="/editFromGallery" method="POST">
+     <input type="hidden" id="scrapbookName" name="scrapbookName" value= <%=users[userID]["scrapbooks"][i]%> ><br>
+     <input type="submit" value="Edit this scrapbook!">
+   </form>
+
+   <form action="/commentFromGallery" method="POST">
+     <input type="hidden" id="scrapbookName" name="scrapbookName" value=<%users[userID]["scrapbooks"][i]%>><br>
+     <input type="submit" value="Comment on this scrapbook!">
+   </form>
+
+   <br>
+
+  <%  } %>
+
 </div>
 <%- include('partials/footer') -%>

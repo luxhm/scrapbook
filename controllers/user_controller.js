@@ -19,4 +19,48 @@ router.get('/comments', function(request, response) {
   }
 });
 
+router.get('/gallery', function(request, response) {
+  if(request.user){
+    response.status(200);
+    response.setHeader('Content-Type', 'text/html')
+    response.render("views/gallery", {
+      request: request,
+      userID: request.user._json.email,
+      users: User.getUser(),
+      scrapbooks: Scrapbook.getScrapbook()
+    });
+  }else{
+    response.redirect('/');
+  }
+});
+
+router.post("/editFromGallery", function(request, response) {
+
+  let scrapbookName = request.body.scrapbookName;
+  let userID = request.user._json.email;
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html');
+  response.render("views/edit", {
+    userID: request.user._json.email,
+    users: User.getUser(),
+    scrapbooks: Scrapbook.getScrapbook(),
+    scrapbookName: scrapbookName
+  });
+});
+
+router.post("/commentFromGallery", function(request, response) {
+
+  let scrapbookName = request.body.scrapbookName;
+  let userID = request.user._json.email;
+  console.log("usercontroller " + scrapbookName);
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html');
+  response.render("views/comments", {
+    userID: request.user._json.email,
+    users: User.getUser(),
+    scrapbooks: Scrapbook.getScrapbook(),
+    scrapbookName: scrapbookName
+  });
+});
+
 module.exports = router
