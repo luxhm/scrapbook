@@ -1,5 +1,20 @@
 <%- include('partials/header', {title:"Index"}) -%>
+  <script>
+    var leftpage = document.getElementById('leftpage');
+    var rightpage = document.getElementById('rightpage');
 
+    leftpage.style.setProperty('--background-Color', <%=scrapbooks[scrapbookName]["1"]["backgroundColor"]%>);
+    rightpage.style.setProperty('--background-Color', <%=scrapbooks[scrapbookName]["1"]["backgroundColor"]%>);
+
+    leftpage.style.setProperty('--font-Color', <%=scrapbooks[scrapbookName]["1"]["fontColor"]%>);
+    rightpage.style.setProperty('--font-Color', <%=scrapbooks[scrapbookName]["1"]["fontColor"]%>);
+
+    leftpage.style.setProperty('--font-Selected', <%=scrapbooks[scrapbookName]["1"]["font"]%>);
+    rightpage.style.setProperty('--font-Selected', <%=scrapbooks[scrapbookName]["1"]["font"]%>);
+
+  </script>
+
+  <br>
   <div class= main>
 
     <% var newestBook = users[userID]["scrapbooks"][users[userID]["scrapbooks"].length-1] %>
@@ -37,7 +52,6 @@
 
   </div>
 
-  <br>
 
 <%- include('partials/toolbox', {scrapbookName: scrapbookName}) -%>
 <%- include('partials/footer') -%>

@@ -14,7 +14,8 @@ router.get('/edit', function(request, response) {
     response.render("views/edit", {
       userID: request.user._json.email,
       users: User.getUser(),
-      scrapbooks: Scrapbook.getScrapbook()
+      scrapbooks: Scrapbook.getScrapbook(),
+      scrapbookName: scrapbookName
     });
   }else{
     response.redirect('/');
