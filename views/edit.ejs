@@ -1,11 +1,13 @@
 <%- include('partials/header', {title:"Index"}) -%>
   <br>
   <div class= main>
+    <button id = "loadCSS">Load</button>
     <% var newestBook = users[userID]["scrapbooks"][users[userID]["scrapbooks"].length-1] %>
     <% if (scrapbooks[scrapbookName]["1"]["images"].length>0){ %>
     <% var length = scrapbooks[scrapbookName]["1"]["images"].length %>
+    <h2> <%=scrapbookName %> </h2>
+
     <div class= leftpage>
-      <h2> <%=scrapbookName %> </h2>
       <div class= leftimage>
         <img src= <%= scrapbooks[scrapbookName]["1"]["images"][length-1]%> width=80% >
       </div>
@@ -29,11 +31,12 @@
         <div class= rightimage>
         </div>
       </div>
+
     <% } %>
   </div>
 
   <script>
-    var load = document.getElementByClassName('loadCSS');
+    var load = document.getElementbyClassName('.loadCSS');
     load.addEventListener('click', function(){
       var leftpage = document.getElementByClassName('leftpage');
       var rightpage = document.getElementByClassName('rightpage');
@@ -46,9 +49,8 @@
 
       leftpage.style.setProperty('--font-Selected', <%=scrapbooks[scrapbookName]["1"]["font"]%>);
       rightpage.style.setProperty('--font-Selected', <%=scrapbooks[scrapbookName]["1"]["font"]%>);
-    }
   </script>
 
-<%- include('partials/toolbox', {scrapbookName: scrapbookName}) -%>
 
+<%- include('partials/toolbox', {scrapbookName: scrapbookName}) -%>
 <%- include('partials/footer') -%>
