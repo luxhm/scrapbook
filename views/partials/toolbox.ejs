@@ -22,23 +22,25 @@
   <!-- Make one singular form to post-->
   <div id="saveForm">
   <form action="/saveScrapbook" method="POST">
-    <input type="hidden" name="scrapbookName" id="scrapbookName"/>
-    <input type="hidden" name="currentPageNumber" id="currentPageNumber"/>
+    <input type="hidden" name="scrapbookName" id="scrapbookName" value="Scrapbook New"/>
+    <input type="hidden" name="currentPageNumber" id="currentPageNumber" value="1"/>
 
     <div id="ColorForm" style="display:none">
-      <br><a>Select Color:<button><input class="backgroundSelector" type="color" value="#ff4545" id="backgroundSelector"></button></a>
+      <label for="backgroundSelector">Select Color:</label>
+      <br><button><input name="backgroundSelector" class="backgroundSelector" type="color" value="#ff4545" id="backgroundSelector"></button>
     </div>
     <div id="FontForm" style="display:none">
-      <br><a>Select Color:<button><input class="fontColorSelector" type="color" value="#ff4545" id="fontColorSelector"></button></a>
+      <label for="fontColorSelector">Select Color:</label>
+      <br><button><input name="fontColorSelector" class="fontColorSelector" type="color" value="#ff4545" id="fontColorSelector"></button>
 
-    <a><label for="fontSelector">Font:</label>
-      <select name="fontFamily" class="fontSelector" id="fontSelector">
+    <label for="fontSelector">Font:</label>
+      <select name="fontSelector" class="fontSelector" id="fontSelector">
       <option value="Outfit">Outfit</option>
       <option value="Courier New">Courier New</option>
       <option value="Times New Roman">Times New Roman</option>
       <option value="Chalkduster">Chalkduster</option>
       <option value="Apple Chancery">Apple Chancery</option>
-      </select></a>
+      </select>
       <br>
     </div>
     <input type="submit" value="Save">
@@ -85,35 +87,33 @@
   var rightpage = document.querySelector('.rightpage');
 
   var backgroundColorSelector = document.querySelector('.backgroundSelector');
-  console.log(backgroundColorSelector.value);
-
-  var myBackgroundColor = document.getElementById("backgroundSelector").value;
-  console.log(myBackgroundColor);
-
+  var myBackgroundColor = document.getElementById("backgroundSelector");
   backgroundColorSelector.addEventListener('change', function(){
     leftpage.style.setProperty('--background-Color', backgroundColorSelector.value)
     rightpage.style.setProperty('--background-Color', backgroundColorSelector.value)
-    console.log(myBackgroundColor);
-    myBackgroundColor = backgroundColorSelector.value;
+
+    myBackgroundColor.value = backgroundColorSelector.value;
+    console.log(myBackgroundColor.value);
   });
 
-
   var fontColorSelector = document.querySelector('.fontColorSelector');
-  var myFontColor = document.getElementById("fontColorSelector").value;
+  var myFontColor = document.getElementById("fontColorSelector");
   fontColorSelector.addEventListener('change', function(){
     leftpage.style.setProperty('--font-Color', fontColorSelector.value)
     rightpage.style.setProperty('--font-Color', fontColorSelector.value)
-    myFontColor = fontColorSelector.value;
-    console.log(myFontColor);
+
+    myFontColor.value = fontColorSelector.value;
+    console.log(myFontColor.value);
   });
 
   var fontSelector = document.querySelector('.fontSelector');
-  var myFont = document.getElementById("fontSelector").value;
+  var myFont = document.getElementById("fontSelector");
   fontSelector.addEventListener('change', function(){
     leftpage.style.setProperty('--font-Selected', fontSelector.value)
     rightpage.style.setProperty('--font-Selected', fontSelector.value)
-    myFont = fontSelector.value;
-    console.log(myFont);
+
+    myFont.value = fontSelector.value;
+    console.log(myFont.value);
   });
 
   </script>
