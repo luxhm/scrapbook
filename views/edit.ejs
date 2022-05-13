@@ -1,31 +1,6 @@
 <%- include('partials/header', {title:"Index"}) -%>
-
-<%  console.log("hello1"); %>
-
-  <script>
-    console.log("hello2");
-    console.log("backgroundColor " + scrapbooks[scrapbookName]["1"]["backgroundColor"]);
-    if ('--background-Color' != #FFFFFF) {
-    var leftpage = document.getElementByClassName('leftpage');
-    var rightpage = document.getElementByClassName('rightpage');
-
-    leftpage.style.setProperty('--background-Color', <%=scrapbooks[scrapbookName]["1"]["backgroundColor"]%>);
-    rightpage.style.setProperty('--background-Color', <%=scrapbooks[scrapbookName]["1"]["backgroundColor"]%>);
-
-    leftpage.style.setProperty('--font-Color', <%=scrapbooks[scrapbookName]["1"]["fontColor"]%>);
-    rightpage.style.setProperty('--font-Color', <%=scrapbooks[scrapbookName]["1"]["fontColor"]%>);
-
-    leftpage.style.setProperty('--font-Selected', <%=scrapbooks[scrapbookName]["1"]["font"]%>);
-    rightpage.style.setProperty('--font-Selected', <%=scrapbooks[scrapbookName]["1"]["font"]%>);
-    }
-
-  </script>
-
-  <%  console.log("hello3"); %>
-
   <br>
   <div class= main>
-
     <% var newestBook = users[userID]["scrapbooks"][users[userID]["scrapbooks"].length-1] %>
     <% if (scrapbooks[scrapbookName]["1"]["images"].length>0){ %>
     <% var length = scrapbooks[scrapbookName]["1"]["images"].length %>
@@ -45,9 +20,8 @@
       </div>
     </div>
     <% } else{ %>
-      <h2> <%=scrapbookName %> </h2>
-
       <div class= leftpage>
+        <h2> <%=scrapbookName %> </h2>
         <div class= leftimage>
         </div>
 
@@ -58,8 +32,26 @@
       </div>
 
     <% } %>
-
   </div>
+
+  <script>
+    function load(){
+      var leftpage = document.getElementByClassName('leftpage');
+      var rightpage = document.getElementByClassName('rightpage');
+
+      leftpage.style.setProperty('--background-Color', <%=scrapbooks[scrapbookName]["1"]["backgroundColor"]%>);
+      rightpage.style.setProperty('--background-Color', <%=scrapbooks[scrapbookName]["1"]["backgroundColor"]%>);
+
+      leftpage.style.setProperty('--font-Color', <%=scrapbooks[scrapbookName]["1"]["fontColor"]%>);
+      rightpage.style.setProperty('--font-Color', <%=scrapbooks[scrapbookName]["1"]["fontColor"]%>);
+
+      leftpage.style.setProperty('--font-Selected', <%=scrapbooks[scrapbookName]["1"]["font"]%>);
+      rightpage.style.setProperty('--font-Selected', <%=scrapbooks[scrapbookName]["1"]["font"]%>);
+      }
+
+    console.log("load");
+
+  </script>
 
 
 <%- include('partials/toolbox', {scrapbookName: scrapbookName}) -%>
