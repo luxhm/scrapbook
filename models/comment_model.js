@@ -9,5 +9,5 @@ exports.saveComment = function(user, comment){ // add scrapbookName after
   let comments = JSON.parse(fs.readFileSync(__dirname+'/../data/comments.json'));
 
   comments[scrapbookName]["comments"].push(comment);
-  fs.writeFileSync(__dirname+'/../data/users.json', JSON.stringify(users));
+  fs.writeFileSync(__dirname+'/../data/comments.json', JSON.stringify(comments));
 }
