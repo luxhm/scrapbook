@@ -43,8 +43,10 @@ exports.addImage = function(scrapbookName, image){
   console.log(scrapbookName);
   console.log(image);
   let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
-  scrapbooks[scrapbookName]["1"]["Images"].push(image);
-  console.log(scrapbooks[scrapbookName]["1"]["Images"]);
+  console.log(scrapbooks[scrapbookName]);
+  console.log(scrapbooks[scrapbookName]['1']);
+  scrapbooks[scrapbookName]["1"]["images"].push(image);
+  console.log(scrapbooks[scrapbookName]["1"]["images"]);
   fs.writeFileSync(__dirname+'/../data/scrapbooks.json', JSON.stringify(scrapbooks));
 
 }

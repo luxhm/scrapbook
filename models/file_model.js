@@ -55,7 +55,6 @@ exports.uploadFile = async function(file) {
         console.error('Error creating the file, ' + response.errors);
         break;
   }
-  Scrapbook.addImage("firstScrapbook", fileURL);
 
   return fileURL;
 }

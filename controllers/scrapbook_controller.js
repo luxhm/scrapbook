@@ -27,7 +27,6 @@ router.post('/upload/photo', privateUpload.any(), async(request, response) => {
   const scrapbook = request.body.scrapbookName;
   console.log("scrapbookcontroller " + scrapbook);
 
-
   if (!file) {
     const error = {
     'httpStatusCode' : 400,
@@ -35,15 +34,18 @@ router.post('/upload/photo', privateUpload.any(), async(request, response) => {
      }
     response.send(error);
   }
+
   let photoLocations=[];
   let fileURL = await File.uploadFile(file);
   photoLocations.push(fileURL);
+  Scrapbook.addImage(scrapbook, fileURL);
 
-  Scrapbook.addImage("hey hey", fileURL);
   //this does not send the USER DATA
   response.render("views/edit", {
     scrapbooks: Scrapbook.getScrapbook(),
-    users: User.getUser()
+    scrapbookName: scrapbook,
+    users: User.getUser(),
+    userID: request.user._json.email
   });
 })
 

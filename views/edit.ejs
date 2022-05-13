@@ -4,20 +4,21 @@
 
     <% var newestBook = users[userID]["scrapbooks"][users[userID]["scrapbooks"].length-1] %>
     <% console.log(scrapbookName); %>
-    <% if (scrapbooks[scrapbookName]["1"]["Images"]){ %>
-    <% var length = scrapbooks[scrapbookName]["1"]["Images"].length %>
-
+    <% if (scrapbooks[scrapbookName]["1"]["images"]){ %>
+    <% var length = scrapbooks[scrapbookName]["1"]["images"].length %>
     <h2> edit page </h2>
     <div class= leftpage>
       <h3> <%=scrapbookName %> </h3>
+      <% console.log(scrapbooks[scrapbookName]["1"]["images"][length-2]) %>
+      <img src= <%= scrapbooks[scrapbookName]["1"]["images"][length-2]%> width=80% >
       <div class= leftimage>
       </div>
 
     </div>
     <div class= rightpage>
       <div class= rightimage>
-       <% if (scrapbooks[scrapbookName]["1"]["Images"] >1){ %>
-         <img src= <%= scrapbooks[scrapbookName]["1"]["Images"][length-1]%> width=80% >
+       <% if (scrapbooks[scrapbookName]["1"]["images"].length >1){ %>
+         <img src= <%= scrapbooks[scrapbookName]["1"]["images"][length-1]%> width=80% >
        <% } %>
       </div>
     </div>
