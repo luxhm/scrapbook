@@ -1,5 +1,7 @@
 const express = require('express'),
 router = express.Router();
+const axios = require('axios'); //install with npm install axios
+
 
 const User = require('../models/user_model');
 const Scrapbook = require('../models/scrapbook_model');
@@ -25,12 +27,12 @@ router.get('/comments', function(request, response) {
   response.render("views/comments");
 });
 
-router.post('/saveScrapbook', function(request, response) { //this is all undefined -- figure out how to save these variables from model
+router.post('/saveScrapbook', async function(request, response) { //this is all undefined -- figure out how to save these variables from model
   let scrapbookName = request.body.scrapbookName; //these are all undefined
   let pageNumber = request.body.currentPageNumber;
-  let backgroundColor = request.body.currentBackgroundColor;
-  let fontColor = request.body.currentFontColor;
-  let font = request.body.currentFont;
+  let backgroundColor = request.body.backgroundSelector;
+  let fontColor = request.body.fontColorSelector;
+  let font = request.body.fontSelector;
 
   console.log("save " + scrapbookName);
   console.log("save " + pageNumber);

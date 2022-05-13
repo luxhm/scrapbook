@@ -5,15 +5,16 @@ exports.getScrapbook = function(){
   return scrapbooks;
 }
 
-exports.saveScrapbook = function(scrapbookName, pageNumber, backgroundColor, fontColor, font){
+exports.saveScrapbook = function(userID, scrapbookName, pageNumber, backgroundColor, fontColor, font){
   //saves the new scrapbook to the scrapbooks json
   let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
   let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
 
-  console.log(scrapbooks);
-  myScrapbook = scrapbooks[scrapbookName];
-  console.log(pageNumber); //undefined
-  console.log(myScrapbook); //undefined
+  //console.log(scrapbooks); //undefined
+  let myScrapbook = scrapbooks[scrapbookName]; //this is undefined rn
+  console.log(userID);
+  //console.log(pageNumber); //undefined
+  //console.log(myScrapbook); //undefined 
 
   myScrapbook[pageNumber] = {
     "backgroundColor": backgroundColor,
