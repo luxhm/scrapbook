@@ -28,22 +28,6 @@ exports.saveScrapbook = function(userID, scrapbookName, pageNumber, backgroundCo
 
 }
 
-exports.updateScrapbook = function(scrapbookName, pageNumber){
-  //updates an old scrapbook in the scrapbooks json
-  let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
-  let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
-
-  let scrapbookObject = scrapbooks[scrapbookName] // = object of scrapbook
-  const newPage = new Object();
-
-  scrapbookObject[newPage] = { //what is scrapbookObject and newpage?
-    "images": [],
-    "backgroundColor": "#FFFFFF",
-    "fontColor": "#000000",
-    "font": "Outfit",
-  }
-}
-
 exports.addImage = function(scrapbookName, image){
   console.log(scrapbookName);
   console.log(image);
