@@ -19,18 +19,21 @@ let privateStorage = multer.diskStorage({
 });
 let privateUpload = multer({ storage: privateStorage });
 
-router.post('/upload/photo', privateUpload.single('picture'), async(request, response) => {
+router.post('/upload/photo', privateUpload.any(), async(request, response) => {
   console.log("/upload/photo route");
   //const file = request.files[0];
   const file = request.file;
   console.log(file);
+  const scrapbook = request.scrapbookName;
+  console.log("scrapbookcontroller " + scrapbook);
+
 
   if (!file) {
     const error = {
     'httpStatusCode' : 400,
     'message':'Please upload a file'
      }
-    res.send(error);
+    response.send(error);
   }
   let photoLocations=[];
   let fileURL = await File.uploadFile(file);

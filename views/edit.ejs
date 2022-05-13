@@ -3,20 +3,20 @@
   <div class= main>
 
     <% var newestBook = users[userID]["scrapbooks"][users[userID]["scrapbooks"].length-1] %>
-    <% console.log(scrapbooks[newestBook]["1"]); %>
-    <% if (scrapbooks[newestBook]["1"]["Images"]){ %>
-    <% var length = scrapbooks[newestBook]["1"]["Images"].length %>
+    <% console.log(scrapbookName); %>
+    <% if (scrapbooks[scrapbookName]["1"]["Images"]){ %>
+    <% var length = scrapbooks[scrapbookName]["1"]["Images"].length %>
 
     <h2> edit page </h2>
     <div class= leftpage>
-      <h3> <%=newestBook %> </h3>
+      <h3> <%=scrapbookName %> </h3>
       <div class= leftimage>
       </div>
 
     </div>
     <div class= rightpage>
       <div class= rightimage>
-       <% if (scrapbooks[newestBook]["1"]["Images"] >1){ %>
+       <% if (scrapbooks[scrapbookName]["1"]["Images"] >1){ %>
          <img src= <%= scrapbooks[scrapbookName]["1"]["Images"][length-1]%> width=80% >
        <% } %>
       </div>
@@ -24,7 +24,7 @@
     <% } else{ %>
       <h2> edit page </h2>
       <div class= leftpage>
-        <h3> <%=newestBook %> </h3>
+        <h3> <%=scrapbookName %> </h3>
         <div class= leftimage>
         </div>
 
@@ -39,5 +39,6 @@
   </div>
 
   <br>
-<%- include('partials/toolbox') -%>
+
+<%- include('partials/toolbox', {scrapbookName: scrapbookName}) -%>
 <%- include('partials/footer') -%>
