@@ -23,9 +23,7 @@ router.post('/upload/photo', privateUpload.any(), async(request, response) => {
   console.log("/upload/photo route");
   //const file = request.files[0];
   const file = request.files[0];
-  console.log(file);
   const scrapbook = request.body.scrapbookName;
-  console.log("scrapbookcontroller " + scrapbook);
 
   if (!file) {
     const error = {
@@ -54,8 +52,6 @@ router.post('/createScrapbook', async function(request, response) {
   let userID = request.user._json.email;
   let users = User.getUser();
   let userScrapbooks = users[userID]["scrapbooks"];
-  console.log(userScrapbooks);
-  console.log(scrapbookName);
 
   function hasWhiteSpace(s) {
     return s.includes(' ')
@@ -68,7 +64,6 @@ router.post('/createScrapbook', async function(request, response) {
     console.log("you can't have spaces in your scrapbook name");
 
   } else{
-    console.log("true");
     Scrapbook.createNewScrapbook(userID, scrapbookName);
     User.updateUser(userID, scrapbookName);
 
