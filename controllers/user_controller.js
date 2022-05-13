@@ -23,11 +23,15 @@ router.get('/comments', function(request, response) {
   }
 });
 
-router.post("/saveComment", function(request, response) {
+router.post("/saveCtoS", function(request, response) {
   let scrapbookName = request.body.scrapbookName;
+  console.log("Save comment " + scrapbookName);
+
   let userID = request.user._json.email;
   let user = User.getUser(request.user._json.email);
-  let comment = request.body.messageInput;
+  let comment = request.body.comment;
+  console.log("Save comment " + comment);
+
   console.log("usercontroller " + comment);
   console.log("usercontroller " + scrapbookName);
   Comments.saveComment(scrapbookName, userID, comment);
@@ -35,6 +39,7 @@ router.post("/saveComment", function(request, response) {
   response.status(200);
   response.setHeader('Content-Type', 'text/html');
   response.render("views/comments", {
+    comments: Comments.getComments(),
     userID: request.user._json.email,
     users: User.getUser(),
     userFirstName: user[request.user._json.email].userFirstName,
@@ -79,6 +84,7 @@ router.post("/commentFromGallery", function(request, response) {
   response.status(200);
   response.setHeader('Content-Type', 'text/html');
   response.render("views/comments", {
+    comments: Comments.getComments(),
     userID: request.user._json.email,
     users: User.getUser(),
     userFirstName: user[request.user._json.email].userFirstName,
