@@ -30,7 +30,7 @@ router.get('/comments', function(request, response) {
 
 router.post('/saveScrapbook', async function(request, response) { //this is all undefined -- figure out how to save these variables from model
   let userID = request.user._json.email;
-  let scrapbookName = request.body.scrapbookName; //these are all undefined
+  let scrapbookName = request.body.scrapbookName;
   let pageNumber = request.body.currentPageNumber;
 
   let backgroundColor = request.body.backgroundSelector; //these are all undefined WHY

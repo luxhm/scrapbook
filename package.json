@@ -16,6 +16,7 @@
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "expresss": "0.0.0",
+    "fs": "0.0.1-security",
     "googleapis": "^100.0.0",
     "multer": "^1.4.4",
     "passport": "^0.5.2",

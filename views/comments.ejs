@@ -1,5 +1,6 @@
 <%- include('partials/header', {title:"Index"}) -%>
 <div class=main>
+  <h2> <%=scrapbookName %> </h2>
 <div class="leftpage">
   <div id="messages">
    <h3>Messages</h3>
@@ -9,6 +10,7 @@
 
   <form action="/saveComment" method="POST">
   <input type="text" id="messageInput">
+  <input type="hidden" id="scrapbookName" name="scrapbookName" value= <%=scrapbookName%>>
   <button type="button" id="sendButton">Send</button><br>
   </form>
 
