@@ -1,7 +1,8 @@
 <%- include('partials/header', {title:"Index"}) -%>
   <script>
-    var leftpage = document.getElementById('leftpage');
-    var rightpage = document.getElementById('rightpage');
+    if ('--background-Color' != #FFFFFF) {
+    var leftpage = document.getElementByClassName('leftpage');
+    var rightpage = document.getElementByClassName('rightpage');
 
     leftpage.style.setProperty('--background-Color', <%=scrapbooks[scrapbookName]["1"]["backgroundColor"]%>);
     rightpage.style.setProperty('--background-Color', <%=scrapbooks[scrapbookName]["1"]["backgroundColor"]%>);
@@ -11,6 +12,7 @@
 
     leftpage.style.setProperty('--font-Selected', <%=scrapbooks[scrapbookName]["1"]["font"]%>);
     rightpage.style.setProperty('--font-Selected', <%=scrapbooks[scrapbookName]["1"]["font"]%>);
+    }
 
   </script>
 
