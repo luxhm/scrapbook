@@ -46,7 +46,12 @@ router.post('/saveScrapbook', async function(request, response) { //this is all 
 
   response.status(200);
   response.setHeader('Content-Type', 'text/html');
-  response.redirect("edit");
+  response.render("views/edit", {
+    userID: request.user._json.email,
+    users: User.getUser(),
+    scrapbooks: Scrapbook.getScrapbook(),
+    scrapbookName: scrapbookName
+  });
 });
 
 
