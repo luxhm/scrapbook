@@ -36,6 +36,20 @@
     <% } %>
 
   </div>
+  <script>
+    var leftpage = document.querySelector('.leftpage');
+    var rightpage = document.querySelector('.rightpage');
+
+    leftpage.style.setProperty('--background-Color', <%=scrapbooks[scrapbookName]["1"][backgroundColor]%>);
+    rightpage.style.setProperty('--background-Color', <%=scrapbooks[scrapbookName]["1"][backgroundColor]%>);
+
+    leftpage.style.setProperty('--font-Color', <%=scrapbooks[scrapbookName]["1"][fontColor]%>);
+    rightpage.style.setProperty('--font-Color', <%=scrapbooks[scrapbookName]["1"][fontColor]%>);
+
+    leftpage.style.setProperty('--font-Selected', <%=scrapbooks[scrapbookName]["1"][font]%>);
+    rightpage.style.setProperty('--font-Selected', <%=scrapbooks[scrapbookName]["1"][font]%>);
+
+  </script>
 
   <br>
 
