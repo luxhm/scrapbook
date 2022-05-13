@@ -1,7 +1,7 @@
 const express = require('express'),
 router = express.Router();
-const axios = require('axios'); //install with npm install axios
 
+const axios = require('axios'); //install with npm install axios
 
 const User = require('../models/user_model');
 const Scrapbook = require('../models/scrapbook_model');
@@ -31,7 +31,8 @@ router.post('/saveScrapbook', async function(request, response) { //this is all 
   let userID = request.user._json.email;
   let scrapbookName = request.body.scrapbookName; //these are all undefined
   let pageNumber = request.body.currentPageNumber;
-  let backgroundColor = request.body.backgroundSelector;
+
+  let backgroundColor = request.body.backgroundSelector; //these are all undefined WHY
   let fontColor = request.body.fontColorSelector;
   let font = request.body.fontSelector;
 

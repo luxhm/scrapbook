@@ -8,35 +8,24 @@ exports.getScrapbook = function(){
 exports.saveScrapbook = function(userID, scrapbookName, pageNumber, backgroundColor, fontColor, font){
   //saves the new scrapbook to the scrapbooks json
   let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
-  let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
+  let allScrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
 
-  //console.log(scrapbooks); //undefined
-  let myScrapbook = scrapbooks[scrapbookName]; //this is undefined rn
-  console.log("name" + userID);
-  //console.log(pageNumber); //undefined
-  //console.log(myScrapbook); //undefined
+  let myScrapbook = allScrapbooks[scrapbookName]; //this is undefined rn SCRAPBOOK NAME is undefined
+  console.log('userID ' + userID);
+  let usersScrapbook = users[userID].scrapbooks;
+  console.log(usersScrapbook);
+  console.log(pageNumber);
+  console.log(myScrapbook);
 
-  myScrapbook[pageNumber] = {
-    "backgroundColor": backgroundColor,
-    "fontColor": fontColor,
-    "font": font,
-  }
-}
+  Object.keys(myScrapbook[pageNumber]).forEach(key => {
+    myScrapbook[pageNumber][key] = '';
+  });
 
-exports.updateScrapbook = function(scrapbookName, pageNumber){
-  //updates an old scrapbook in the scrapbooks json
-  let scrapbooks = JSON.parse(fs.readFileSync(__dirname+'/../data/scrapbooks.json'));
-  let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
+  myScrapbook[pageNumber].backgroundColor = backgroundColor;
+  myScrapbook[pageNumber].fontColor = fontColor;
+  myScrapbook[pageNumber].font = font;
+  console.log(myScrapbook[pageNumber]);
 
-  let scrapbookObject = scrapbooks[scrapbookName] // = object of scrapbook
-  const newPage = new Object();
-
-  scrapbookObject[newPage] = {
-    "images": [],
-    "backgroundColor": " ",
-    "fontColor": " ",
-    "font": " ",
-  }
 }
 
 exports.addImage = function(scrapbookName, image){
@@ -60,9 +49,9 @@ exports.createNewScrapbook = function(userID, scrapbookName){
       "User": userID,
       "1": {
         "images": [],
-        "backgroundColor": "" ,
-        "fontColor": "",
-        "font": ""
+        "backgroundColor": "#FFFFFF" ,
+        "fontColor": "#000000",
+        "font": "Outfit"
       }
     }
     scrapbooks[scrapbookName] = newScrapbook;
