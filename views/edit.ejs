@@ -1,7 +1,7 @@
 <%- include('partials/header', {title:"Index"}) -%>
   <br>
   <div class= main>
-
+    <button id = "loadCSS">Load</button>
     <% var newestBook = users[userID]["scrapbooks"][users[userID]["scrapbooks"].length-1] %>
     <% if (scrapbooks[scrapbookName]["1"]["images"].length>0){ %>
     <% var length = scrapbooks[scrapbookName]["1"]["images"].length %>
