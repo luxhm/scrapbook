@@ -17,15 +17,13 @@ exports.saveScrapbook = function(userID, scrapbookName, pageNumber, backgroundCo
   console.log(pageNumber);
   console.log(myScrapbook);
 
-  Object.keys(myScrapbook[pageNumber]).forEach(key => {
-    myScrapbook[pageNumber][key] = '';
-  });
+  myScrapbook["1"].backgroundColor = backgroundColor;
+  myScrapbook["1"].fontColor = fontColor;
+  myScrapbook["1"].font = font;
 
-  myScrapbook[pageNumber].backgroundColor = backgroundColor;
-  myScrapbook[pageNumber].fontColor = fontColor;
-  myScrapbook[pageNumber].font = font;
-  console.log(myScrapbook[pageNumber]);
+  console.log(myScrapbook["1"]);
 
+  fs.writeFileSync(__dirname+'/../data/scrapbooks.json', JSON.stringify(allScrapbooks));
 }
 
 exports.addImage = function(scrapbookName, image){
