@@ -38,8 +38,8 @@
 /*edit page*/
 .leftpage {
   width: 47.25%;
-  margin-left: 2.5%;
-  height: 650px;
+  margin-left: 2.75%;
+  height: 800px;
   border: 2.5px solid black;
   float:left;
   background-color: var(--background-Color);
@@ -48,8 +48,8 @@
 }
 .rightpage {
   width: 47.25%;
-  margin-right: 2.5%;
-  height: 650px;
+  margin-right: 2.75%;
+  height: 800px;
   border: 2.5px solid black;
   float:right;
   background-color: var(--background-Color);
@@ -60,7 +60,7 @@
 
 .leftimage {
   margin-left: 15%;
-  margin-top: 15%;
+  margin-top: 10%;
   float:left;
 }
 
@@ -73,6 +73,7 @@
 h3{
   margin-left: 5%;
   margin-top: 2%;
+  font-size: 40px;
 }
 
 /*toolbox*/
@@ -80,11 +81,10 @@ h3{
   width: 95%;
   z-index: 1;
   height: 100px;
-  margin-top: 650px;
+  margin-top: 800px;
   margin-left: 2.5%;
   background-color: #C2C2C2;
   transition: 0.5s;
-  /*position: fixed;*/
   border: 2.5px solid #C2C2C2;
 
 }

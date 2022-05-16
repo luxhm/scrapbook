@@ -6,8 +6,7 @@
     <% var length = scrapbooks[scrapbookName]["1"]["images"].length %>
 
     <div class= "leftpage">
-      <h2> <%=scrapbookName %> </h2>
-
+      <h3> <%=scrapbookName %> </h3>
       <div class= leftimage>
         <img src= <%= scrapbooks[scrapbookName]["1"]["images"][length-1]%> width=80% >
       </div>
@@ -22,7 +21,7 @@
     </div>
     <% } else{ %>
       <div class= leftpage>
-        <h2> <%=scrapbookName %> </h2>
+        <h3> <%=scrapbookName %> </h3>
         <div class= leftimage>
         </div>
 
